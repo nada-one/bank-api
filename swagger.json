@@ -1,0 +1,100 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Bug Tracker API",
+      "description": "Bug Tracker API",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "paths": {
+        "/bugs": {
+            "get": {
+                "tags": ["Bugs"],
+                "summary": "Get all bugs in the system",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                        "$ref": "#/definitions/Bugs"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": ["Bugs"],
+                "description": "Report a new bug",
+                "parameters": [
+                  {
+                    "name": "id",
+                    "in": "body",
+                    "description": "Bug ID",
+                    "type": "string"
+                  },
+                  {
+                    "name": "subject",
+                    "in": "body",
+                    "description": "Bug Subject",
+                    "type": "string"
+                  }
+                ],
+                "produces": ["application/json"],
+                "responses": {
+                  "201": {
+                    "description": "New bug is created",
+                    "schema": {
+                      "$ref": "#/definitions/BugCreated"
+                    }
+                  }
+                }
+            }            
+        }
+    },
+    "definitions": {
+        "Bug": {
+            "required": ["name", "_id", "companies"],
+            "properties": {
+                "id": {
+                "type": "integer",
+                "uniqueItems": true
+                },
+                "subject": {
+                "type": "string"
+                },
+                "description": {
+                "type": "string"
+                },
+                "status": {
+                "type": "string"
+                },
+                "created_date": {
+                "type": "string"
+                }
+            }
+        },
+        "Bugs": {
+            "type": "array",
+            "$ref": "#/definitions/Bug"
+        },
+        "BugCreated": {
+            "properties": {
+                "id": {
+                "type": "integer"
+                }
+            }
+        }
+    },    
+    "host": "localhost:3000",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "Bugs",
+        "description": "API for bug tracking"
+      }
+    ],
+    "schemes": ["http"],
+    "consumes": ["application/x-www-form-urlencoded"],
+    "produces": ["application/json"]
+}
