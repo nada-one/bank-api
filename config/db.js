@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 //Assign MongoDB connection string to Uri and declare options settings
-var  uri = "mongodb+srv://javiles:Nscja2013!@cluster0.nzoac.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+var  uri = "mongodb+srv://javiles:[password]!@cluster0.nzoac.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 // Declare a variable named option and assign optional settings
 const  options = {
