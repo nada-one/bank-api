@@ -3,8 +3,6 @@
 // require express and bodyParser
 const express = require("express");
 const bodyParser = require("body-parser");
-const swaggerUi = require('swagger-ui-express'),
-swaggerDocument = require('./swagger.json');
 
 // Import DB Connection
 require("./config/db");
