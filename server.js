@@ -23,18 +23,9 @@ routes(app);
 // define port to run express app
 const  port = process.env.PORT || 3000;
 
-// Add endpoint
-app.get('/', (req, res) => {
-    res.send("Hello World");
-});
-
-app.use(
-    '/api-docs',
-    swaggerUi.serve, 
-    swaggerUi.setup(swaggerDocument)
-);
-
 // Listen to server
-app.listen(port, () => {
+const server = app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
+
+module.exports = server;

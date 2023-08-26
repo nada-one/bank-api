@@ -2,12 +2,13 @@
 const Record = require("../models/record");
 
 exports.listAllRecords = (req, res) => {
+    const limit = req.query.limit !== undefined ? parseInt(req.query.limit) : null;
     Record.find({}, (err, rec) => {
         if (err) {
             res.status(500).send(err);
         }
         res.status(200).json(rec);
-    });
+    }).limit(limit);
 };
 
 exports.listSpecificRecord = (req, res) => {
@@ -31,11 +32,11 @@ exports.createNewRecord = (req, res) => {
 };
 
 exports.updateRecord = (req, res) => {
-    Record.findOneAndUpdate({ _id:req.params.id }, req.body, { new:true }, (err, rec) => {
+    Record.findOneAndUpdate({ _id: req.params.id }, req.body, { new:true }, (err, rec) => {
         if (err) {
             res.status(500).send(err);
         }
-        res.status(204);
+        res.status(200).json({id: req.params.id});
     });
 };
 

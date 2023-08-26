@@ -9,6 +9,11 @@ const  options = {
     useUnifiedTopology:  true
 };
 
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
+
 // Connect MongoDB Atlas using mongoose connect method
 mongoose.connect(uri, options).then(() => {
     console.log("Database connection established!");
