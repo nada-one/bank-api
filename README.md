@@ -1,4 +1,2 @@
-# bug_tracker_api
-Bug Tracker API using node.js, mongodb, and express with Swagger.
-
-Still WIP.
+# Bank API
+Bank API using node.js, mongodb, and express with Swagger.
