@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const supertest = require("supertest");
 
 beforeEach(async () => {
-  await mongoose.connect("mongodb+srv://admin_10:admin_10@cluster0.nzoac.mongodb.net/bank-api?retryWrites=true&w=majority",
+  await mongoose.connect("mongodb+srv://admin_10:<password>@cluster0.nzoac.mongodb.net/bank-api?retryWrites=true&w=majority",
     { useNewUrlParser: true, useUnifiedTopology: true });
 });
 
